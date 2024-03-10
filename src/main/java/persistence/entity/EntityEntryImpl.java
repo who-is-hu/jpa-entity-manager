@@ -23,6 +23,11 @@ public class EntityEntryImpl implements EntityEntry {
     }
 
     @Override
+    public EntityLoader getEntityLoader() {
+        return entityLoader;
+    }
+
+    @Override
     public void setSaving() {
         status = Status.SAVING;
     }

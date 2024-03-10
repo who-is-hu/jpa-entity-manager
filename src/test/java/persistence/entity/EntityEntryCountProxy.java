@@ -57,4 +57,9 @@ public class EntityEntryCountProxy implements EntityEntry {
     public boolean isReadOnly() {
         return target.isReadOnly();
     }
+
+    @Override
+    public EntityLoader getEntityLoader() {
+        return target.getEntityLoader();
+    }
 }

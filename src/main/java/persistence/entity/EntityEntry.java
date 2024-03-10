@@ -5,6 +5,8 @@ public interface EntityEntry {
 
     EntityPersister getEntityPersister();
 
+    EntityLoader getEntityLoader();
+
     void setSaving();
 
     void setManaged();

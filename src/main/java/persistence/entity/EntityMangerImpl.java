@@ -34,7 +34,7 @@ public class EntityMangerImpl implements EntityManger {
         EntityEntry entityEntry = entityEntryFactory.createEntityEntry(entityPersister, entityLoader, Status.LOADING);
         entityEntryContext.addEntry(entityKey, entityEntry);
 
-        T foundEntity = entityLoader.find(clazz, id);
+        T foundEntity = entityEntry.getEntityLoader().find(clazz, id);
         persistenceContext.addEntity(entityKey, foundEntity);
 
         entityEntry.setManaged();
@@ -87,7 +87,7 @@ public class EntityMangerImpl implements EntityManger {
         EntityEntry entityEntry = entityEntryContext.getEntry(entityKey);
 
         entityEntry.setDeleted();
-        entityPersister.delete(entity);
+        entityEntry.getEntityPersister().delete(entity);
         persistenceContext.removeEntity(entity);
         entityEntry.setGone();
     }
